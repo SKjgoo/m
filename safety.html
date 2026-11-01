@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>(function(){var t=null;try{t=localStorage.getItem('theme')}catch(e){}if(!t){t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}document.documentElement.setAttribute('data-theme',t)})();</script>
+  <title>الأمان والطقس | اكتشف عُمان</title>
+  <meta name="description" content="تنبؤ مخاطر الطقس لأي موقع، ومعايير الأمن والسلامة الوطنية والدولية لإدارة المسارات والأنشطة الخارجية، وقوائم تحقق.">
+  <meta name="theme-color" content="#f7f2ea">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Reem+Kufi:wght@500;700&display=swap" rel="stylesheet">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_OM">
+  <meta property="og:title" content="الأمان والطقس | اكتشف عُمان">
+  <meta property="og:description" content="تنبؤ مخاطر الطقس لأي موقع، ومعايير الأمن والسلامة الوطنية والدولية لإدارة المسارات والأنشطة الخارجية، وقوائم تحقق.">
+  <meta property="og:image" content="images/grand-mosque.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="has-rail" data-page="safety">
+  <div id="site-header"></div>
+
+  <section class="hero page-hero">
+    <div class="container">
+      <span class="eyebrow">الأمن والسلامة</span>
+      <h1>الأمان والطقس</h1>
+      <p class="lead">افحص مخاطر الطقس لـ7 أيام، وطبّق معايير السلامة الوطنية والدولية بقوائم تحقق لكل نشاط قبل أن تنطلق.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><div><span class="kicker">تنبؤ بالمخاطر</span><h2>مخاطر الطقس للموقع والنشاط</h2></div>
+        <p>اختر الموقع والنشاط فتظهر المخاطر المرتبطة به: سيول وحرارة ورياح وأشعة وموج وبرودة.</p></div>
+      <div class="filters" style="margin:0 0 20px">
+        <div class="filter-row">
+          <label>الموقع <select id="w-loc" class="field"></select></label>
+          <label>النشاط <select id="w-act" class="field"></select></label>
+          <button class="btn" id="w-go" type="button">افحص الطقس</button>
+        </div>
+      </div>
+      <div id="w-out" aria-live="polite"><p class="muted">اختر الموقع واضغط «افحص الطقس».</p></div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <div class="section-head"><div><span class="kicker">قرار الانطلاق</span><h2>الانطلاق أم الإلغاء؟ (Go / No-Go)</h2></div></div>
+      <table class="table-x"><thead><tr><th>الحالة</th><th>القرار</th></tr></thead><tbody>
+        <tr><td>أي خطر في الخطر الأهم للنشاط</td><td><b>إلغاء أو تأجيل</b> ولا تغامر.</td></tr>
+        <tr><td>تنبيه لعاملين أو أكثر</td><td>غيّر المسار أو قلّل المدة أو أجّل، ولا تنطلق متأخرًا.</td></tr>
+        <tr><td>تنبيه لعامل واحد</td><td>انطلق بحذر مع احتياطات محددة وخطة عودة واضحة.</td></tr>
+        <tr><td>كل المؤشرات </td><td>انطلق، وأعد الفحص صباح الرحلة.</td></tr>
+        <tr><td>تحذير رسمي من الأرصاد أو الدفاع المدني</td><td><b>التزم بالتحذير الرسمي</b> دائمًا مهما كانت هذه التوقعات.</td></tr>
+      </tbody></table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><div><span class="kicker">الأنظمة والمعايير</span><h2>معايير الأمن والسلامة</h2></div>
+        <p>قوائم إرشادية تلتقي مع المتطلبات الوطنية والمعايير الدولية؛ ليست بديلًا عن تراخيص الجهات الرسمية.</p></div>
+      <div class="two-col">
+        <div class="panel"><h3>وطنية</h3><ul class="check-list" id="std-nat"></ul></div>
+        <div class="panel"><h3>دولية</h3><ul class="check-list" id="std-int"></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <div class="section-head"><div><span class="kicker">للمشارك</span><h2>قوائم تحقق حسب النشاط</h2></div></div>
+      <div class="tabs" id="cl-tabs"></div>
+      <div class="panel"><div class="progress"><i id="cl-bar"></i></div><ul class="check-items" id="cl-list"></ul>
+        <button class="btn small light" id="cl-reset" type="button" style="margin-top:12px">تصفير القائمة</button></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><div><span class="kicker">للمنظّم</span><h2>قائمة التزام المنظّم</h2></div></div>
+      <div class="panel"><ul class="check-items" id="op-list"></ul></div>
+      <div class="info-grid" style="margin-top:20px">
+        <div class="info"><h3>في الطوارئ</h3><ul><li>اتصل بـ <b dir="ltr">9999</b> وأعطِ الموقع الدقيق (إحداثيات إن أمكن).</li><li>ابقَ في مكان آمن، وقدّم الإسعافات الأولية.</li><li>لا تحاول عبور الوادي الجاري.</li></ul></div>
+        <div class="info"><h3>شارك موقعك</h3><ul><li>أرسل المسار ووقت العودة لشخص موثوق.</li><li>احمل شاحنًا ومصدر طاقة شمسيًا.</li><li>ثبّت خريطة غير متصلة قبل الذهاب.</li></ul></div>
+        <div class="info"><h3>مرجع الأرصاد</h3><ul><li><a href="https://met.gov.om" target="_blank" rel="noopener">الأرصاد الجوية العُمانية</a></li><li>بيانات هذه الصفحة من Open-Meteo.</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/adventure-data.js"></script>
+  <script src="js/places.js"></script>
+  <script src="js/safety-data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/risk.js"></script>
+  <script src="js/safety.js"></script>
+</body>
+</html>

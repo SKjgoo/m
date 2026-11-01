@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>(function(){var t=null;try{t=localStorage.getItem('theme')}catch(e){}if(!t){t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}document.documentElement.setAttribute('data-theme',t)})();</script>
+  <title>الحرف والأسواق | اكتشف عُمان</title>
+  <meta name="description" content="تعرّف على الحرف العُمانية وأسواقها وتطوير وتسويق الصناعة الحرفية ودليل التواصل.">
+  <meta name="theme-color" content="#f7f2ea">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Reem+Kufi:wght@500;700&display=swap" rel="stylesheet">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_OM">
+  <meta property="og:title" content="الحرف والأسواق | اكتشف عُمان">
+  <meta property="og:description" content="تعرّف على الحرف العُمانية وأسواقها وتطوير وتسويق الصناعة الحرفية ودليل التواصل.">
+  <meta property="og:image" content="images/grand-mosque.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="has-rail" data-page="crafts">
+  <div id="site-header"></div>
+
+  <section class="hero page-hero">
+    <div class="container">
+      <span class="eyebrow">الصناعة الحرفية</span>
+      <h1>الحرف والأسواق</h1>
+      <p class="lead">لكل قطعة حرفية يد صانع وحكاية مكان. تعرّف عليها، واعرف أين تشتريها، وكيف نطوّر الحرفة ونسوّقها بما يحفظ أصالتها.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><div><span class="kicker">تعزيز الوعي</span><h2>الحرف العُمانية</h2></div>
+        <p>اضغط «أين أجدها» لتفتح الوجهة أو السوق المرتبط بالحرفة.</p></div>
+      <div class="grid" id="crafts"></div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <div class="section-head"><div><span class="kicker">للتسوّق والتجربة</span><h2>الأسواق التقليدية</h2></div>
+        </div>
+      <div class="chips" id="souq-filter" style="margin-bottom:18px"></div>
+      <div class="grid" id="souqs"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><div><span class="kicker">للحرفيين وأصحاب المشاريع</span><h2>تطوير الصناعة الحرفية وتسويقها</h2></div></div>
+      <div class="two-col">
+        <div class="panel">
+          <h3>الجهات والبرامج</h3>
+          <ul class="check-list">
+            <li>أُنشئت <b>الهيئة العامة للصناعات الحرفية</b> بالمرسوم السلطاني 24/2003 لتنظيم القطاع ودعمه.</li>
+            <li>منذ المرسوم السلطاني 107/2020 تتولى <b>هيئة تنمية المؤسسات الصغيرة والمتوسطة</b> دعم الحرفيين وتطوير القطاع.</li>
+            <li>من برامج الدعم المعلنة: تطوير مراكز التدريب الحرفي، <b>بطاقة الحرفي العُماني</b>، هاكاثون لابتكار الحرف، ربط الحرف بتقنيات مثل الطباعة ثلاثية الأبعاد، ومعارض ترويجية.</li>
+          </ul>
+          <p class="muted" style="font-size:.88rem">للاطلاع على الخدمات والشروط الحالية راجع الجهة الرسمية مباشرة (الدليل أدناه).</p>
+        </div>
+        <div class="panel">
+          <h3>مجالات التطوير المقترحة</h3>
+          <ul class="check-list">
+            <li><b>الجودة والتصميم:</b> تطوير منتجات حديثة بروح تراثية بالتعاون مع مصممين دون فقدان الأصالة.</li>
+            <li><b>نقل المهارة:</b> ورش تدريب ومتدربون شباب مع الحرفيين الكبار.</li>
+            <li><b>المواد المستدامة:</b> مواد محلية، وتقليل الهدر، وتغليف قابل للتدوير.</li>
+            <li><b>الهوية والتوثيق:</b> بطاقة تعريف بالصانع وقصة القطعة ورمز QR وضمان الأصالة.</li>
+            <li><b>الحماية:</b> حماية التصاميم والعلامات والمؤشرات الجغرافية.</li>
+            <li><b>الشراكة مع السياحة:</b> ورش زيارة للسياح، مسارات حرفية، وبيع في الفنادق والمطارات والمعارض.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="two-col" style="margin-top:20px">
+        <div class="panel">
+          <h3>حاسبة سعر المنتج الحرفي</h3>
+          <div class="calc" id="price-calc">
+            <label>تكلفة المواد (ر.ع)<input type="number" min="0" step="0.1" id="pc-mat" value="5"></label>
+            <label>ساعات العمل<input type="number" min="0" step="0.5" id="pc-hrs" value="6"></label>
+            <label>أجر الساعة (ر.ع)<input type="number" min="0" step="0.1" id="pc-wage" value="2"></label>
+            <label>مصاريف عامة %<input type="number" min="0" id="pc-oh" value="10"></label>
+            <label>هامش الربح %<input type="number" min="0" id="pc-profit" value="20"></label>
+          </div>
+          <div class="result-box" id="pc-out"></div>
+          <p class="muted" style="font-size:.85rem;margin:8px 0 0">أرقام المثال افتراضية، عدّلها بحسب حرفتك. السعر الأدنى = المواد + الأجر + المصاريف، ثم يُضاف الربح.</p>
+        </div>
+        <div class="panel">
+          <h3>قائمة التسويق الحرفي</h3>
+          <div class="progress"><i id="mk-bar"></i></div>
+          <ul class="check-items" id="mk-list"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="directory">
+    <div class="container">
+      <div class="section-head"><div><span class="kicker">حسابات وأرقام</span><h2>دليل التواصل</h2></div>
+        <p>أضف الحرفيين والمحلات بالنموذج أدناه.</p></div>
+      <div class="chips" id="c-filter" style="margin-bottom:16px"></div>
+      <div class="grid" id="contacts"></div>
+
+      <div class="panel" style="margin-top:26px">
+        <h3>إضافة حرفي أو محل أو منظّم رحلات</h3>
+        <p class="muted">املأ الحقول، انسخ السطر الناتج وألصقه داخل <code>CONTACTS</code> في ملف <code>js/contacts-data.js</code>، فيظهر الكرت مباشرة. استخدم رقمًا وحسابًا تملك إذنًا بنشرهما.</p>
+        <form class="maker-form" id="maker">
+          <label>الاسم<input name="name" required></label>
+          <label>النوع<select name="type"><option value="craft">حرفي / محل</option><option value="adventure">منظّم مغامرات</option><option value="stay">إقامة</option><option value="transport">نقل</option><option value="official">جهة رسمية</option></select></label>
+          <label>الهاتف<input name="phone" inputmode="tel" dir="ltr" placeholder="9XXXXXXX"></label>
+          <label>واتساب (برمز الدولة)<input name="wa" inputmode="tel" dir="ltr" placeholder="9689XXXXXXX"></label>
+          <label>تيك توك / X<input name="x" dir="ltr"></label>
+          <label>الموقع<input name="web" dir="ltr" placeholder="https://"></label>
+          <label class="full">وصف قصير<input name="desc"></label>
+          <div class="full btn-row"><button class="btn" type="submit">أنشئ السطر</button></div>
+        </form>
+        <pre class="out" id="maker-out" hidden></pre>
+        <button class="btn small light" id="maker-copy" type="button" hidden>نسخ</button>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/crafts-data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/crafts.js"></script>
+</body>
+</html>

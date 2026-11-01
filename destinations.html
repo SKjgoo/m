@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>(function(){var t=null;try{t=localStorage.getItem('theme')}catch(e){}if(!t){t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}document.documentElement.setAttribute('data-theme',t)})();</script>
+  <title>الوجهات السياحية في عُمان | اكتشف عُمان</title>
+  <meta name="description" content="تصفّح الوجهات السياحية في سلطنة عُمان وفلترها حسب المحافظة والنوع.">
+  <meta name="theme-color" content="#f7f2ea">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Reem+Kufi:wght@500;700&display=swap" rel="stylesheet">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_OM">
+  <meta property="og:title" content="الوجهات السياحية في عُمان | اكتشف عُمان">
+  <meta property="og:description" content="تصفّح الوجهات السياحية في سلطنة عُمان وفلترها حسب المحافظة والنوع.">
+  <meta property="og:image" content="images/grand-mosque.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="has-rail" data-page="dest">
+  <div id="site-header"></div>
+
+  <section class="hero page-hero">
+    <div class="container">
+      <span class="eyebrow">دليل الوجهات</span>
+      <h1>الوجهات <span>السياحية</span></h1>
+      <p class="lead">قلاع، أودية، جبال، شواطئ وصحراء. ابحث وفلتر حتى تجد رحلتك المثالية.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="filters">
+        <div class="filter-row">
+          <input type="search" id="q" placeholder="ابحث بالاسم أو الوصف…" aria-label="بحث">
+          <select id="gov" aria-label="المحافظة"></select>
+          <label class="toggle"><input type="checkbox" id="vronly"> جولات VR فقط</label>
+        </div>
+        <div class="chips" id="cats"></div>
+        <div class="result-count" id="count"></div>
+      </div>
+      <div class="grid" id="results"></div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/destinations.js"></script>
+</body>
+</html>

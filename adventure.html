@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>(function(){var t=null;try{t=localStorage.getItem('theme')}catch(e){}if(!t){t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}document.documentElement.setAttribute('data-theme',t)})();</script>
+  <title>المغامرة في عُمان | اكتشف عُمان</title>
+  <meta name="description" content="أنشطة المغامرة في عُمان: مشي جبلي وأودية وكثبان وغطس وتسلق، مع مستوى الصعوبة والمخاطر ومعايير السلامة.">
+  <meta name="theme-color" content="#f7f2ea">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Reem+Kufi:wght@500;700&display=swap" rel="stylesheet">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_OM">
+  <meta property="og:title" content="المغامرة في عُمان | اكتشف عُمان">
+  <meta property="og:description" content="أنشطة المغامرة في عُمان: مشي جبلي وأودية وكثبان وغطس وتسلق، مع مستوى الصعوبة والمخاطر ومعايير السلامة.">
+  <meta property="og:image" content="images/grand-mosque.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="has-rail" data-page="adv">
+  <div id="site-header"></div>
+
+  <section class="hero page-hero">
+    <div class="container">
+      <span class="eyebrow">جبال وأودية وصحراء وبحر</span>
+      <h1>المغامرة في عُمان</h1>
+      <p class="lead">اختر نشاطك حسب مستواك وموسمك، وافحص مخاطر الطقس قبل أن تنطلق، وتعرّف على معايير السلامة لكل نشاط.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="filters" style="margin-top:-60px">
+        <div class="filter-row">
+          <label>المستوى <select id="a-level" class="field"><option value="">الكل</option><option value="1">سهل</option><option value="2">متوسط</option><option value="3">صعب</option></select></label>
+          <label>النوع <select id="a-type" class="field"></select></label>
+          <span class="result-count" id="a-count"></span>
+        </div>
+      </div>
+      <div class="grid" id="adv" style="grid-template-columns:repeat(auto-fill,minmax(320px,1fr))"></div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <div class="section-head"><div><span class="kicker">قبل كل مغامرة</span><h2>الأمان أولًا</h2></div>
+        <a class="btn dark" href="safety.html">معايير السلامة وقوائم التحقق ←</a></div>
+      <div class="info-grid">
+        <div class="info"><h3>اختر منظّمًا مرخّصًا</h3><ul><li>اطلب إثبات الترخيص ومؤهلات المرشد.</li><li>اسأل عن خطة الطوارئ والتأمين.</li><li>تأكد من وضوح الصعوبة والمخاطر قبل الدفع.</li></ul></div>
+        <div class="info"><h3>الطقس يقرّر</h3><ul><li>افحص مخاطر الطقس لمدة 7 أيام.</li><li>الأودية: مطر بعيد قد يعني سيلًا عندك.</li><li>الرياح القوية توقف الكثبان والقوارب والتسلق.</li></ul></div>
+        <div class="info"><h3>مغامرة بلا أثر</h3><ul><li>احمل نفاياتك كلها وافرزها.</li><li>استخدم طاقة شمسية بدل المولدات.</li><li>لا تلمس الشعاب ولا تطارد الحيوانات.</li></ul>
+          <p style="margin:10px 0 0"><a class="btn small" href="eco.html">دليل البيئة والتخييم</a></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><div><span class="kicker">حسابات وأرقام</span><h2>منظّمو المغامرات</h2></div>
+        <a class="btn dark" href="crafts.html#directory">دليل التواصل وإضافة منظّم ←</a></div>
+      <div class="grid" id="adv-contacts"></div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/adventure-data.js"></script>
+  <script src="js/crafts-data.js"></script>
+  <script src="js/safety-data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/risk.js"></script>
+  <script src="js/adventure.js"></script>
+</body>
+</html>

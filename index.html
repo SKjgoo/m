@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>(function(){var t=null;try{t=localStorage.getItem('theme')}catch(e){}if(!t){t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}document.documentElement.setAttribute('data-theme',t)})();</script>
+  <title>اكتشف عُمان | دليل السياحة في سلطنة عُمان</title>
+  <meta name="description" content="دليل سياحي شامل لمحافظات سلطنة عُمان: وجهات، خرائط تفاعلية، ووصف مفصّل وجولات افتراضية 360° على الهاتف.">
+  <meta name="theme-color" content="#f7f2ea">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Reem+Kufi:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_OM">
+  <meta property="og:title" content="اكتشف عُمان | دليل السياحة في سلطنة عُمان">
+  <meta property="og:description" content="دليل سياحي شامل لمحافظات سلطنة عُمان: وجهات، خرائط تفاعلية، ووصف مفصّل وجولات افتراضية 360° على الهاتف.">
+  <meta property="og:image" content="images/grand-mosque.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="has-rail" data-page="home">
+  <div id="site-header"></div>
+
+  <!-- ===== الواجهة الرئيسية ===== -->
+  <section class="hero">
+    <div class="container">
+      <span class="eyebrow">سلطنة عُمان</span>
+      <h1>اكتشف <span>جمال عُمان</span><br>من الجبال إلى البحر</h1>
+      <p class="lead">من قلاع نزوى وأسواق مطرح إلى كثبان الشرقية وخريف ظفار. تصفّح الوجهات، شاهدها على الخريطة، وعِش جولة افتراضية 360° من هاتفك.</p>
+      <form class="search-box" action="destinations.html" method="get" role="search">
+        <input type="search" name="q" placeholder="ابحث عن وجهة: وادي شاب، نزوى، صلالة…" aria-label="بحث">
+        <button class="btn" type="submit">ابحث</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== الإحصاءات ===== -->
+  <div class="container">
+    <div class="stats">
+      <div class="stat"><b id="stat-gov">11</b><span>محافظة</span></div>
+      <div class="stat"><b id="stat-dest">0</b><span>وجهة سياحية</span></div>
+      <div class="stat"><b id="stat-vr">0</b><span>جولة VR 360°</span></div>
+      <div class="stat"><b id="stat-cat">6</b><span>أنواع من التجارب</span></div>
+    </div>
+  </div>
+
+  <!-- ===== عُمان عبر الزمان ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div><span class="kicker">جديد</span><h2>عُمان عبر الزمان</h2></div>
+        <a class="btn dark" href="history.html">ابدأ الرحلة في التاريخ ←</a>
+      </div>
+      <p class="muted" style="max-width:640px">من أدوات الإنسان الأول في ظفار إلى مجان والنحاس، ثم اللبان والأئمة واليعاربة والبوسعيد حتى عُمان 2040، مع إنجازات كل حاكم والأماكن التي تحكي قصته.</p>
+      <div class="chips" id="era-chips" style="margin-top:14px"></div>
+    </div>
+  </section>
+
+  <!-- ===== الفئات ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div><span class="kicker">اختر تجربتك</span><h2>ماذا تحب أن تستكشف؟</h2></div>
+        <p>من التراث والقلاع إلى الصحراء والبحر والجبال، اختر الفئة التي تناسب مزاجك.</p>
+      </div>
+      <div class="grid" id="cat-tiles"></div>
+    </div>
+  </section>
+
+  <!-- ===== وجهات مميزة ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><div><span class="kicker">معالم</span><h2>من قلاع الداخلية إلى سواحل الشرقية</h2></div><a class="more" href="destinations.html">كل الوجهات ←</a></div>
+      <div class="lm-strip" id="landmark-strip"></div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <div class="section-head">
+        <div><span class="kicker">لا تفوّتها</span><h2>وجهات مميزة</h2></div>
+        <a class="btn dark" href="destinations.html">كل الوجهات ←</a>
+      </div>
+      <div class="grid" id="featured"></div>
+    </div>
+  </section>
+
+  <!-- ===== الخريطة ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div><span class="kicker">الخريطة التفاعلية</span><h2>كل الوجهات على الخريطة</h2></div>
+        <a class="btn dark" href="map.html">افتح الخريطة الكاملة ←</a>
+      </div>
+      <div class="map-box" id="homemap" style="height:440px"></div>
+      <p class="muted" style="margin-top:10px">اضغط على أي علامة لقراءة الوصف وفتح الاتجاهات في خرائط جوجل.</p>
+    </div>
+  </section>
+
+  <!-- ===== المحافظات ===== -->
+  <section class="section alt">
+    <div class="container">
+      <div class="section-head">
+        <div><span class="kicker">11 محافظة</span><h2>تصفّح حسب المحافظة</h2></div>
+        <a class="btn dark" href="governorates.html">تفاصيل المحافظات ←</a>
+      </div>
+      <div class="grid" id="gov-preview"></div>
+    </div>
+  </section>
+
+  <!-- ===== أقسام جديدة ===== -->
+  <section class="section alt">
+    <div class="container">
+      <div class="section-head"><div><span class="kicker">اكتشف أكثر</span><h2>حرف ومغامرة وبيئة وأمان</h2></div></div>
+      <div class="grid">
+        <a class="card" href="crafts.html"><div class="card-body"><h3>الحرف والأسواق</h3><p>الخنجر والفخار والسدو والأسواق التقليدية، وتطوير وتسويق الصناعة الحرفية ودليل التواصل.</p></div></a>
+        <a class="card" href="adventure.html"><div class="card-body"><h3>المغامرة في عُمان</h3><p>مشي جبلي وأودية وكثبان وغطس وتسلّق، بمستوى الصعوبة والمخاطر.</p></div></a>
+        <a class="card" href="eco.html"><div class="card-body"><h3>البيئة والتخييم</h3><p>حماية هوية الموقع، حاسبة الطاقة الشمسية للمخيم، وإعادة التدوير.</p></div></a>
+        <a class="card" href="safety.html"><div class="card-body"><h3>الأمان والطقس</h3><p>تنبؤ مخاطر الطقس لـ7 أيام ومعايير السلامة الوطنية والدولية وقوائم تحقق.</p></div></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== الرحلة ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div><span class="kicker">قبل أن تتحرك</span><h2>الرحلة: طريقك خطوة بخطوة</h2></div>
+        <a class="btn" href="trip.html">خطّط رحلتك ←</a>
+      </div>
+      <p class="muted" style="max-width:640px">اختر من أين تنطلق وإلى أين، فنعرض لك الطريق والمساجد القريبة منه ومحطات الوقود والمدن والمحافظات التي ستمرّ بها.</p>
+    </div>
+  </section>
+
+  <!-- ===== الواقع الافتراضي ===== -->
+  <section class="section dark">
+    <div class="container">
+      <div class="section-head">
+        <div><span class="kicker">تقنية الواقع الافتراضي</span><h2>زُر عُمان من هاتفك بتقنية 360°</h2></div>
+        <a class="btn" href="vr.html">ابدأ الجولة الافتراضية</a>
+      </div>
+      <div class="how-grid">
+        <div class="how" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12)">
+          <div class="n">1</div><h3>افتح الجولة</h3>
+          <p style="color:#b9c8d3">اختر وجهة من قائمة الجولات وسيُحمَّل المشهد الشامل مباشرة في المتصفح.</p>
+        </div>
+        <div class="how" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12)">
+          <div class="n">2</div><h3>حرّك هاتفك</h3>
+          <p style="color:#b9c8d3">يستجيب المشهد لحركة هاتفك (الجيروسكوب) فتنظر حولك كأنك في المكان.</p>
+        </div>
+        <div class="how" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12)">
+          <div class="n">3</div><h3>وضع النظارة</h3>
+          <p style="color:#b9c8d3">فعّل وضع VR ثم ضع الهاتف في نظارة كرتونية (Cardboard) لتجربة مجسّمة.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/history-data.js"></script>
+  <script src="js/exif.js"></script>
+  <script src="js/site-config.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/mapcore.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

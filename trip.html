@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>(function(){var t=null;try{t=localStorage.getItem('theme')}catch(e){}if(!t){t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}document.documentElement.setAttribute('data-theme',t)})();</script>
+  <title>الرحلة: المسار والمساجد ومحطات الوقود | اكتشف عُمان</title>
+  <meta name="description" content="اختر نقطة الانطلاق والوجهة فيعرض لك الموقع المسار والمساجد ومحطات الوقود والمناطق التي ستمرّ بها.">
+  <meta name="theme-color" content="#f7f2ea">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Reem+Kufi:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_OM">
+  <meta property="og:title" content="الرحلة: المسار والمساجد ومحطات الوقود | اكتشف عُمان">
+  <meta property="og:description" content="اختر نقطة الانطلاق والوجهة فيعرض لك الموقع المسار والمساجد ومحطات الوقود والمناطق التي ستمرّ بها.">
+  <meta property="og:image" content="images/grand-mosque.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="has-rail" data-page="trip">
+  <div id="site-header"></div>
+
+  <section class="hero page-hero">
+    <div class="container">
+      <span class="eyebrow">مخطّط الطريق</span>
+      <h1>الرحلة</h1>
+      <p class="lead">من أين تنطلق وإلى أين؟ سنعرض لك الطريق، والمساجد القريبة منه، ومحطات الوقود، والمدن والمحافظات التي ستمرّ بها.</p>
+    </div>
+  </section>
+
+  <section class="container" style="padding-bottom:60px">
+    <form class="trip-form" id="trip-form">
+      <label>من أين تنطلق؟
+        <select id="from" required></select>
+      </label>
+      <button class="btn light swap" id="swap" type="button" title="تبديل نقطة الانطلاق والوصول" aria-label="تبديل">⇄</button>
+      <label>إلى أين؟
+        <select id="to" required></select>
+      </label>
+      <button class="btn" type="submit">اعرض الرحلة</button>
+    </form>
+    <div class="trip-sub">
+      <button class="btn small light" id="useloc" type="button">انطلق من موقعي الحالي</button>
+      <span class="muted" id="locstate"></span>
+    </div>
+
+    <div class="trip-status note" id="status" role="status" aria-live="polite"></div>
+
+    <div id="result" hidden>
+      <div class="trip-stats" id="stats"></div>
+      <div id="notes"></div>
+      <h3>المحافظات التي ستمرّ بها</h3>
+      <div class="gov-strip" id="govs"></div>
+      <div class="btn-row" style="margin:6px 0 22px" id="actions"></div>
+      <div class="trip-layout">
+        <div>
+          <div class="trip-filters" id="filters"></div>
+          <ul class="stops" id="stops"></ul>
+        </div>
+        <div class="trip-map" id="tripmap"></div>
+      </div>
+      <div id="extras" hidden>
+        <section style="margin-top:40px">
+          <div class="section-head"><div><span class="kicker">الطقس</span><h2>مخاطر الطقس عند الوجهة</h2></div>
+            <a class="btn small dark" id="trip-wx-link" href="safety.html">فحص موقع آخر ونشاط محدد ←</a></div>
+          <div id="trip-wx"></div>
+        </section>
+        <section style="margin-top:40px">
+          <div class="section-head"><div><span class="kicker">التنقل</span><h2>خدمات النقل</h2></div></div>
+          <div id="trip-transport"></div>
+        </section>
+        <section style="margin-top:40px">
+          <div class="section-head"><div><span class="kicker">المبيت والطعام</span><h2>الفنادق والمطاعم قرب الوجهة</h2></div></div>
+          <div class="panel" id="trip-stay"></div>
+        </section>
+        <section style="margin-top:40px">
+          <div class="section-head"><div><span class="kicker">مبنية على رحلتك</span><h2>خطط رحلات مقترحة</h2></div>
+            <p>تُبنى على نقطة انطلاقك ووجهتك والوجهات على طريقك، ثم تُضبط بأيامك وميزانيتك وشهر السفر.</p></div>
+          <form class="maker-form" id="plan-form"></form>
+          <div id="plan-out" style="margin-top:16px"></div>
+        </section>
+      </div>
+      <p class="muted" style="margin-top:22px;font-size:.92rem">المسار من خدمة OSRM، والمساجد ومحطات الوقود من بيانات OpenStreetMap وهي قد تكون ناقصة أو غير محدّثة. تأكّد من الوقود قبل الطرق الطويلة، خصوصًا في الوسطى وبين نزوى وصلالة.</p>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/places.js"></script>
+  <script src="js/crafts-data.js"></script>
+  <script src="js/lodging-data.js"></script>
+  <script src="js/risk.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/mapcore.js"></script>
+  <script src="js/trip.js"></script>
+  <script src="js/trip-plan.js"></script>
+</body>
+</html>
