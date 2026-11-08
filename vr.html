@@ -17,7 +17,7 @@
   <meta property="og:image" content="images/grand-mosque.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=15">
   <!-- A-Frame: مكتبة الواقع الافتراضي على الويب (WebXR) -->
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
 </head>
@@ -41,7 +41,7 @@
                    loading-screen="enabled: false"
                    device-orientation-permission-ui="enabled: true"
                    renderer="antialias: true">
-            <a-sky id="sky" color="#0d2233" rotation="0 -90 0"></a-sky>
+            <a-sky id="sky" color="#ffffff" rotation="0 -90 0"></a-sky>
             <a-entity camera position="0 1.6 0"
                       look-controls="reverseMouseDrag: true; touchEnabled: true; magicWindowTrackingEnabled: true"
                       wasd-controls="enabled: false"></a-entity>
@@ -88,8 +88,9 @@
 
   <div id="site-footer"></div>
 
-  <script src="js/data.js"></script>
-  <script src="js/common.js"></script>
-  <script src="js/vr.js"></script>
+  <script src="js/data.js?v=15"></script>
+  <script src="js/gallery-data.js?v=15"></script>
+  <script src="js/common.js?v=15"></script>
+  <script src="js/vr.js?v=16"></script>
 </body>
 </html>
