@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <script>(function(){var t=null;try{t=localStorage.getItem('theme')}catch(e){}if(!t){t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}document.documentElement.setAttribute('data-theme',t)})();</script>
+  <title>جولات الواقع الافتراضي 360° في عُمان | اكتشف عُمان</title>
+  <meta name="description" content="جولات افتراضية بتقنية 360° للوجهات السياحية في عُمان تعمل على الهاتف مع دعم نظارة VR.">
+  <meta name="theme-color" content="#f7f2ea">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Reem+Kufi:wght@500;700&display=swap" rel="stylesheet">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_OM">
+  <meta property="og:title" content="جولات الواقع الافتراضي 360° في عُمان | اكتشف عُمان">
+  <meta property="og:description" content="جولات افتراضية بتقنية 360° للوجهات السياحية في عُمان تعمل على الهاتف مع دعم نظارة VR.">
+  <meta property="og:image" content="images/grand-mosque.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css?v=15">
+  <!-- A-Frame: مكتبة الواقع الافتراضي على الويب (WebXR) -->
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+</head>
+<body class="has-rail" data-page="vr">
+  <div id="site-header"></div>
+
+  <section class="hero page-hero">
+    <div class="container">
+      <span class="eyebrow">واقع افتراضي</span>
+      <h1>جولات <span>360°</span> من هاتفك</h1>
+      <p class="lead">اختر وجهة، ثم حرّك هاتفك أو اسحب بإصبعك لتنظر حولك. فعّل وضع VR وضع الهاتف في نظارة كرتونية لتجربة مجسّمة.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container vr-layout">
+      <div>
+        <div class="vr-stage" id="stage">
+          <a-scene id="scene" embedded
+                   vr-mode-ui="enabled: true"
+                   loading-screen="enabled: false"
+                   device-orientation-permission-ui="enabled: true"
+                   renderer="antialias: true">
+            <a-entity id="sky" pano rotation="0 -90 0"></a-entity>
+            <a-entity camera position="0 1.6 0"
+                      look-controls="reverseMouseDrag: true; touchEnabled: true; magicWindowTrackingEnabled: true"
+                      wasd-controls="enabled: false"></a-entity>
+          </a-scene>
+
+          <div class="vr-hud">
+            <div class="vr-title"><span id="vr-name">…</span><small id="vr-gov"></small></div>
+            <div class="vr-controls">
+              <button type="button" id="b-prev" aria-label="السابق">›</button>
+              <button type="button" id="b-next" aria-label="التالي">‹</button>
+              <button type="button" id="b-auto">دوران تلقائي</button>
+              <button type="button" id="b-vr">وضع VR</button>
+              <button type="button" id="b-full">ملء الشاشة</button>
+            </div>
+          </div>
+
+          <div class="vr-overlay" id="overlay">
+            <div><div class="spinner" id="spinner"></div><div id="ov-text">جارٍ تحميل المشهد…</div></div>
+          </div>
+
+          <div class="vr-tip"><span>اسحب بإصبعك أو حرّك هاتفك للنظر حولك</span></div>
+        </div>
+
+        <div class="panel" id="info" style="margin-top:18px"></div>
+      </div>
+
+      <div class="vr-list" id="vrlist" aria-label="قائمة الجولات"></div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <div class="section-head"><h2>كيف أستخدم الواقع الافتراضي على هاتفي؟</h2></div>
+      <div class="how-grid">
+        <div class="how"><div class="n">1</div><h3>الجيروسكوب</h3>
+          <p>على الهاتف يتبع المشهد حركة جهازك تلقائيًا. على iPhone سيطلب المتصفح إذن «حركة واتجاه الجهاز»، اضغط سماح.</p></div>
+        <div class="how"><div class="n">2</div><h3>وضع نظارة VR</h3>
+          <p>اضغط «وضع VR» ثم ضع الهاتف أفقيًا في نظارة Cardboard. يعمل على المتصفحات الداعمة (مثل Chrome على أندرويد).</p></div>
+        <div class="how"><div class="n">3</div><h3>شروط التشغيل</h3>
+          <p>يجب فتح الموقع عبر رابط آمن <code dir="ltr">https://</code> (أو localhost أثناء التجربة) حتى تعمل حساسات الحركة.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script src="js/data.js?v=15"></script>
+  <script src="js/gallery-data.js?v=15"></script>
+  <script src="js/common.js?v=15"></script>
+  <script src="js/vr.js?v=20"></script>
+</body>
+</html>
