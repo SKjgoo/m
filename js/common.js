@@ -14,8 +14,43 @@ const NAV = [
   { href: 'eco.html',          label: 'البيئة والتخييم', key: 'eco',     icon: '' },
   { href: 'safety.html',       label: 'الأمان والطقس',   key: 'safety',  icon: '' },
   { href: 'vr.html',           label: 'جولات VR 360°',   key: 'vr',      icon: '' },
-  { href: 'plan.html',         label: 'خطّط رحلتك',      key: 'plan',    icon: '' }
+  { href: 'plan.html',         label: 'خطّط رحلتك',      key: 'plan',    icon: '' },
+  { href: 'chat.html',         label: 'اسأل المساعد',    key: 'chat',    icon: '' }
 ];
+
+/* ---------- الترجمة عربي ⇄ إنجليزي (Google Translate، تحتاج إنترنت) ---------- */
+function getLang() {
+  try { return localStorage.getItem('lang') === 'en' ? 'en' : 'ar'; }
+  catch (e) { return /googtrans=\/ar\/en/.test(document.cookie) ? 'en' : 'ar'; }
+}
+function setLang(l) {
+  try { localStorage.setItem('lang', l); } catch (e) { /* التخزين غير متاح */ }
+  const past = '; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+  if (l === 'en') {
+    document.cookie = 'googtrans=/ar/en; path=/';
+    try { document.cookie = 'googtrans=/ar/en; path=/; domain=' + location.hostname; } catch (e) {}
+  } else {
+    document.cookie = 'googtrans=' + past;
+    try { document.cookie = 'googtrans=' + past + '; domain=' + location.hostname; } catch (e) {}
+  }
+  location.reload();
+}
+if (getLang() === 'en') {
+  document.documentElement.lang = 'en';   // تبقى الواجهة (الشريط الجانبي) كما هي ويتبدّل اتجاه كل فقرة تلقائيًا
+  document.documentElement.classList.add('is-en');
+}
+function loadTranslator() {
+  if (getLang() !== 'en') return;
+  const box = document.createElement('div');
+  box.id = 'google_translate_element'; box.style.display = 'none';
+  document.body.appendChild(box);
+  window.googleTranslateElementInit = () => {
+    new google.translate.TranslateElement({ pageLanguage: 'ar', includedLanguages: 'en', autoDisplay: false }, 'google_translate_element');
+  };
+  const s = document.createElement('script');
+  s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+  s.async = true; document.head.appendChild(s);
+}
 
 /* ---------- الوضع الداكن / الفاتح ---------- */
 function getTheme() {
@@ -139,6 +174,9 @@ function buildChrome() {
         <button type="button" data-theme="light">فاتح</button>
         <button type="button" data-theme="dark">داكن</button>
       </div>
+      <button type="button" class="lang-btn notranslate" translate="no" id="lang-btn" aria-label="Translate: Arabic / English">
+        <span aria-hidden="true">🌐</span> <span>${getLang() === 'en' ? 'العربية' : 'English'}</span>
+      </button>
     </aside>`;
     const btn = header.querySelector('.menu-btn');
     const rail = header.querySelector('.rail');
@@ -155,6 +193,8 @@ function buildChrome() {
     rail.querySelectorAll('.theme-switch button').forEach(b =>
       b.addEventListener('click', () => setTheme(b.dataset.theme)));
     setTheme(getTheme());
+    const lb = header.querySelector('#lang-btn');
+    if (lb) lb.addEventListener('click', () => setLang(getLang() === 'en' ? 'ar' : 'en'));
   }
   const footer = document.getElementById('site-footer');
   if (footer) {
@@ -306,6 +346,7 @@ function buildSupport() {
 document.addEventListener('DOMContentLoaded', () => {
   buildChrome();
   buildSupport();
+  loadTranslator();
   buildTicker();
   omaniDecor();
   { let pt; new MutationObserver(() => { clearTimeout(pt); pt = setTimeout(() => loadPhotos(), 60); }).observe(document.body, { childList: true, subtree: true }); }
