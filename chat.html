@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>(function(){var t=null;try{t=localStorage.getItem('theme')}catch(e){}if(!t){t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}document.documentElement.setAttribute('data-theme',t)})();</script>
+  <title>اسأل المساعد السياحي | اكتشف عُمان</title>
+  <meta name="description" content="مساعد محادثة متخصص بالسياحة في سلطنة عُمان: اسأل عن الوجهات والمواسم والبرامج واللباس والتأشيرة وغيرها.">
+  <meta name="theme-color" content="#f7f2ea">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Reem+Kufi:wght@500;700&display=swap" rel="stylesheet">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_OM">
+  <meta property="og:title" content="اسأل المساعد السياحي | اكتشف عُمان">
+  <meta property="og:description" content="مساعد محادثة متخصص بالسياحة في سلطنة عُمان: اسأل عن الوجهات والمواسم والبرامج واللباس والتأشيرة وغيرها.">
+  <meta property="og:image" content="images/grand-mosque.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css?v=22">
+</head>
+<body class="has-rail" data-page="chat">
+  <div id="site-header"></div>
+
+    <section class="hero page-hero">
+    <div class="container">
+      <span class="eyebrow">مساعد ذكي للمعلومات</span>
+      <h1>اسأل المساعد السياحي</h1>
+      <p class="lead">اكتب سؤالك عن السياحة في سلطنة عُمان بأسلوبك: وجهات، مواسم، برامج، لباس، تأشيرة، مغامرات وطقس.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="chat-shell">
+        <div class="chat-top"><strong>المساعد السياحي لعُمان</strong><button type="button" id="chat-clear" class="chat-clear">محادثة جديدة</button></div>
+        <div class="chat-log" id="chat-log" aria-live="polite"></div>
+        <form class="chat-form" id="chat-form" autocomplete="off">
+          <textarea id="chat-input" rows="1" maxlength="400" placeholder="اكتب سؤالك هنا…" aria-label="سؤالك"></textarea>
+          <button type="submit" id="chat-send" aria-label="إرسال">إرسال</button>
+        </form>
+      </div>
+      <p class="chat-note-foot">يجيب المساعد من قاعدة معلومات الموقع (وليس نموذجًا توليديًا)، لذلك قد لا يفهم كل صياغة. تحقّق من التأشيرات والمواعيد والأسعار من الجهات الرسمية قبل السفر.</p>
+    </div>
+  </section>
+
+  <script src="js/data.js?v=22"></script>
+  <script src="js/adventure-data.js?v=22"></script>
+  <script src="js/crafts-data.js?v=22"></script>
+  <script src="js/lodging-data.js?v=22"></script>
+  <script src="js/safety-data.js?v=22"></script>
+  <script src="js/history-data.js?v=22"></script>
+  <script src="js/places.js?v=22"></script>
+  <script src="js/gov-details.js?v=22"></script>
+  <script src="js/common.js?v=22"></script>
+  <script src="js/chat-kb.js?v=22"></script>
+  <script src="js/chat.js?v=22"></script>
+</body>
+</html>
